@@ -20,7 +20,7 @@
     
     
       
-        <title>get_assembly_data - Ensembl-Genomio (v0.1)</title>
+        <title>get_assembly_data - Ensembl-Genomio</title>
       
     
     
@@ -83,10 +83,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="Ensembl-Genomio (v0.1)" class="md-header__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../../.." title="Ensembl-Genomio" class="md-header__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,7 +96,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Ensembl-Genomio (v0.1)
+            Ensembl-Genomio
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,13 +174,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="Ensembl-Genomio (v0.1)" class="md-nav__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../../.." title="Ensembl-Genomio" class="md-nav__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../../images/logo.png" alt="logo">
 
     </a>
-    Ensembl-Genomio (v0.1)
+    Ensembl-Genomio
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -2261,6 +2259,13 @@
   
       <p>When a file download fails or there is a problem with that file.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FileDownloadError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;When a file download fails or there is a problem with that file.&quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   </div>
 
@@ -2285,6 +2290,23 @@
   
       <p>Input arguments expected by the entry point of this module.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">InputSchema</span><span class="p">(</span><span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Input arguments expected by the entry point of this module.&quot;&quot;&quot;</span>
+
+    <span class="n">accession</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;descriptions&quot;</span><span class="p">:</span> <span class="s2">&quot;Genome assembly accession&quot;</span><span class="p">})</span>
+    <span class="n">asm_download_dir</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">OutputDir</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Path to folder where data will be downloaded&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2325,6 +2347,13 @@
   
       <p>When a string does not have the expected format.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">UnsupportedFormatError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;When a string does not have the expected format.&quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   </div>
 
@@ -2347,6 +2376,79 @@
   
       <p>Given an INSDC accession, download all available files from the ftp to the download dir</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">download_files</span><span class="p">(</span><span class="n">accession</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dl_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">max_redo</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given an INSDC accession, download all available files from the ftp to the download dir</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(GC[AF])_([0-9]</span><span class="si">{3}</span><span class="s2">)([0-9]</span><span class="si">{3}</span><span class="s2">)([0-9]</span><span class="si">{3}</span><span class="s2">)\.?([0-9]+)&quot;</span><span class="p">,</span> <span class="n">accession</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">UnsupportedFormatError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not recognize GCA accession format: </span><span class="si">{</span><span class="n">accession</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">gca</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">part1</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">part2</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">part3</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Get the list of assemblies for this accession</span>
+    <span class="n">ftp_url</span> <span class="o">=</span> <span class="s2">&quot;ftp.ncbi.nlm.nih.gov&quot;</span>
+    <span class="n">sub_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;genomes&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">gca</span><span class="p">,</span> <span class="n">part1</span><span class="p">,</span> <span class="n">part2</span><span class="p">,</span> <span class="n">part3</span><span class="p">)</span>
+    <span class="n">ftp_conn</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
+    <span class="n">ftp_conn</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">ftp_url</span><span class="p">)</span>
+    <span class="n">ftp_conn</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+    <span class="n">ftp_conn</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">sub_dir</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">ftp_dir</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ftp_conn</span><span class="o">.</span><span class="n">mlsd</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">accession</span><span class="p">,</span> <span class="n">ftp_dir</span><span class="p">):</span>
+            <span class="n">ftp_conn</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="n">ftp_dir</span><span class="p">)</span>
+            <span class="c1"># First, get the md5sum file</span>
+            <span class="n">md5_file</span> <span class="o">=</span> <span class="s2">&quot;md5checksums.txt&quot;</span>
+            <span class="n">md5_path</span> <span class="o">=</span> <span class="n">dl_dir</span> <span class="o">/</span> <span class="n">md5_file</span>
+            <span class="k">with</span> <span class="n">md5_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">ftp_conn</span><span class="o">.</span><span class="n">retrbinary</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RETR </span><span class="si">{</span><span class="n">md5_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+            <span class="n">md5_sums</span> <span class="o">=</span> <span class="n">get_checksums</span><span class="p">(</span><span class="n">md5_path</span><span class="p">)</span>
+
+            <span class="c1"># Get all the files</span>
+            <span class="k">for</span> <span class="n">ftp_file</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ftp_conn</span><span class="o">.</span><span class="n">mlsd</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">_FILE_ENDS</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">ftp_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ftp_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_from_</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">):</span>
+                        <span class="n">_download_file</span><span class="p">(</span><span class="n">ftp_conn</span><span class="p">,</span> <span class="n">ftp_file</span><span class="p">,</span> <span class="n">md5_sums</span><span class="p">,</span> <span class="n">dl_dir</span><span class="p">,</span> <span class="n">max_redo</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2367,6 +2469,37 @@
   
       <p>Get a dict of checksums from a file, with file names as keys and sums as values</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_checksums</span><span class="p">(</span><span class="n">checksum_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a dict of checksums from a file, with file names as keys and sums as values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sums</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">checksum_path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">sums</span>
+    <span class="k">with</span> <span class="n">checksum_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">checksum</span><span class="p">,</span> <span class="n">file_path</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">)</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">file_path</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">file_path</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">sums</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">checksum</span>
+    <span class="k">return</span> <span class="n">sums</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2390,6 +2523,43 @@ Return a dict[name] = file_path
 The file_path is relative to the download dir
 Current names are defined in _FILE_ENDS</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_files_selection</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Among all the files downloaded, only keep a subset for which we use a controlled name.</span>
+<span class="sd">    Return a dict[name] = file_path</span>
+<span class="sd">    The file_path is relative to the download dir</span>
+<span class="sd">    Current names are defined in _FILE_ENDS</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">root_name</span> <span class="o">=</span> <span class="n">get_root_name</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">root_name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">FileDownloadError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not determine the files root name in </span><span class="si">{</span><span class="n">dl_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dl_file</span> <span class="ow">in</span> <span class="n">dl_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">end</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_FILE_ENDS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">file_with_end</span> <span class="o">=</span> <span class="n">dl_file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dl_file</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_from_</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">root_name</span> <span class="ow">and</span> <span class="n">dl_file</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">root_name</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="ow">or</span> <span class="n">file_with_end</span><span class="p">:</span>
+                <span class="n">files</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">dl_file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">files</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2410,6 +2580,27 @@ Current names are defined in _FILE_ENDS</p>
   
       <p>Get root name for assembly files, using the report file as base</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_root_name</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get root name for assembly files, using the report file as base&quot;&quot;&quot;</span>
+    <span class="n">root_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">dl_file</span> <span class="ow">in</span> <span class="n">dl_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;^(.+_)assembly_report.txt&quot;</span><span class="p">,</span> <span class="n">dl_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">matches</span><span class="p">:</span>
+            <span class="n">root_name</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">root_name</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2430,6 +2621,17 @@ Current names are defined in _FILE_ENDS</p>
   
       <p>Module's entry-point.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Module&#39;s entry-point.&quot;&quot;&quot;</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchemaParser</span><span class="p">(</span><span class="n">schema_type</span><span class="o">=</span><span class="n">InputSchema</span><span class="p">)</span>
+    <span class="n">retrieve_assembly_data</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;accession&quot;</span><span class="p">],</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;asm_download_dir&quot;</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2451,6 +2653,67 @@ Current names are defined in _FILE_ENDS</p>
       <p>Check all files checksums with the sums listed in a checksum file, if available.
 Return False if there is no checksum file, or a file is missing, or has a wrong checksum.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">md5_files</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check all files checksums with the sums listed in a checksum file, if available.</span>
+<span class="sd">    Return False if there is no checksum file, or a file is missing, or has a wrong checksum.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">md5_file</span> <span class="o">=</span> <span class="s2">&quot;md5checksums.txt&quot;</span>
+    <span class="c1"># Get checksums and compare</span>
+    <span class="n">md5_path</span> <span class="o">=</span> <span class="n">dl_dir</span> <span class="o">/</span> <span class="n">md5_file</span>
+    <span class="n">sums</span> <span class="o">=</span> <span class="n">get_checksums</span><span class="p">(</span><span class="n">md5_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sums</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; File sums from </span><span class="si">{</span><span class="n">md5_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sums</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dl_file</span><span class="p">,</span> <span class="n">checksum</span> <span class="ow">in</span> <span class="n">sums</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">_FILE_ENDS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">dl_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dl_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_from_</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">):</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">dl_dir</span> <span class="o">/</span> <span class="n">dl_file</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">file_path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; No file </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> found&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+                <span class="c1"># Check the file checksum</span>
+                <span class="k">with</span> <span class="n">file_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                    <span class="n">file_sum</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">file_sum</span> <span class="o">!=</span> <span class="n">checksum</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; File </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> checksum doesn&#39;t match&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; File checksum ok </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; All checksums OK&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2542,6 +2805,107 @@ Return False if there is no checksum file, or a file is missing, or has a wrong 
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/assembly/get_assembly_data.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">retrieve_assembly_data</span><span class="p">(</span>
+    <span class="n">accession</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">asm_download_dir</span><span class="p">:</span> <span class="n">PathLike</span><span class="p">,</span>
+    <span class="n">max_increment</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">max_redo</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        accession: Genome Assembly accession</span>
+<span class="sd">        asm_download_dir: Path to directory used to store retrieved</span>
+<span class="sd">        max_increment: If you want to allow assembly versions</span>
+<span class="sd">        max_redo: Set max number of times to retry downloading a file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">download_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">asm_download_dir</span><span class="p">)</span>
+
+    <span class="c1"># Configure logging</span>
+    <span class="n">log_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">accession</span><span class="si">}</span><span class="s2">_download.log&quot;</span>
+    <span class="n">reload</span><span class="p">(</span><span class="n">logging</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">log_file</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2">:</span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">filemode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Set and create dedicated dir for download</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">download_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">download_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Download if files don&#39;t exist or fail checksum</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">md5_files</span><span class="p">(</span><span class="n">download_dir</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Download the files&quot;</span><span class="p">)</span>
+
+        <span class="c1"># max_increment = self.param(&quot;max_increment&quot;)</span>
+
+        <span class="k">for</span> <span class="n">increment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_increment</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">increment</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Increment accession version once from </span><span class="si">{</span><span class="n">accession</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">accession</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">version</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">accession</span> <span class="o">=</span> <span class="n">accession</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                <span class="n">download_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">download_files</span><span class="p">(</span><span class="n">accession</span><span class="p">,</span> <span class="n">download_dir</span><span class="p">,</span> <span class="n">max_redo</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">md5_files</span><span class="p">(</span><span class="n">download_dir</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">FileDownloadError</span><span class="p">(</span><span class="s2">&quot;Failed md5sum of downloaded files&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Select specific files and give them a name</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">get_files_selection</span><span class="p">(</span><span class="n">download_dir</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">FileDownloadError</span><span class="p">(</span><span class="s2">&quot;No file downloaded&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>

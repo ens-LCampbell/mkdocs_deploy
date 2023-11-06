@@ -20,7 +20,7 @@
     
     
       
-        <title>db_factory - Ensembl-Genomio (v0.1)</title>
+        <title>db_factory - Ensembl-Genomio</title>
       
     
     
@@ -83,10 +83,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="Ensembl-Genomio (v0.1)" class="md-header__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../.." title="Ensembl-Genomio" class="md-header__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,7 +96,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Ensembl-Genomio (v0.1)
+            Ensembl-Genomio
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,13 +174,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="Ensembl-Genomio (v0.1)" class="md-nav__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../.." title="Ensembl-Genomio" class="md-nav__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../images/logo.png" alt="logo">
 
     </a>
-    Ensembl-Genomio (v0.1)
+    Ensembl-Genomio
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -2176,6 +2174,77 @@
   
       <p>Input arguments expected by this script.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/db_factory.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">InputSchema</span><span class="p">(</span><span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Input arguments expected by this script.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Server parameters</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Host to the server with EnsEMBL databases&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Port to use&quot;</span><span class="p">})</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Host to use&quot;</span><span class="p">})</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;User to use&quot;</span><span class="p">})</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Password to use&quot;</span><span class="p">})</span>
+
+    <span class="c1"># Filters</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Prefix to filter the databases&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">build</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Build to filter the databases&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;EnsEMBL version to filter the databases&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">brc_mode</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;BRC4 mode: use organism_abbrev for species, component for division&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">dbname_re</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;regexp to match db name against&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2298,6 +2367,89 @@ division. Otherwise, the species will be <code>species.production_name</code> an
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/db_factory.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">format_db_data</span><span class="p">(</span><span class="n">server</span><span class="p">:</span> <span class="n">CoreServer</span><span class="p">,</span> <span class="n">dbs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">brc_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns metadata from a list of databases on a server.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        server: Server where all the databases are hosted.</span>
+<span class="sd">        dbs: List of database names.</span>
+<span class="sd">        brc_mode: If true, assign ``BRC4.organism_abbrev`` as the species, and ``BRC4.component`` as the</span>
+<span class="sd">            division. Otherwise, the species will be ``species.production_name`` and the division will be</span>
+<span class="sd">            ``species.division``.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of dictionaries with 3 keys: &quot;database&quot;, &quot;species&quot; and &quot;division&quot;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">db_datas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span><span class="p">:</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">set_database</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">get_db_metadata</span><span class="p">()</span>
+
+        <span class="n">species</span> <span class="o">=</span> <span class="n">get_metadata_value</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;species.production_name&quot;</span><span class="p">)</span>
+        <span class="n">division</span> <span class="o">=</span> <span class="n">get_metadata_value</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;species.division&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">brc_mode</span><span class="p">:</span>
+            <span class="n">brc_organism</span> <span class="o">=</span> <span class="n">get_metadata_value</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;BRC4.organism_abbrev&quot;</span><span class="p">)</span>
+            <span class="n">brc_component</span> <span class="o">=</span> <span class="n">get_metadata_value</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;BRC4.component&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">brc_organism</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">species</span> <span class="o">=</span> <span class="n">brc_organism</span>
+            <span class="k">if</span> <span class="n">brc_component</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">division</span> <span class="o">=</span> <span class="n">brc_component</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">division</span><span class="p">:</span>
+            <span class="n">division</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+
+        <span class="n">db_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="n">db</span><span class="p">,</span>
+            <span class="s2">&quot;species&quot;</span><span class="p">:</span> <span class="n">species</span><span class="p">,</span>
+            <span class="s2">&quot;division&quot;</span><span class="p">:</span> <span class="n">division</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">db_datas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">db_data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">db_datas</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2362,6 +2514,31 @@ division. Otherwise, the species will be <code>species.production_name</code> an
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/db_factory.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_metadata_value</span><span class="p">(</span><span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the first element in the list assigned to `key` in `metadata`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        metadata: Map of metadata information to lists of values.</span>
+<span class="sd">        key: Metadata key to search for.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">)</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">metadata</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2382,6 +2559,55 @@ division. Otherwise, the species will be <code>species.production_name</code> an
   
       <p>Main script entry-point.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/db_factory.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main script entry-point.&quot;&quot;&quot;</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchemaParser</span><span class="p">(</span><span class="n">schema_type</span><span class="o">=</span><span class="n">InputSchema</span><span class="p">)</span>
+
+    <span class="n">server</span> <span class="o">=</span> <span class="n">CoreServer</span><span class="p">(</span>
+        <span class="n">host</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">],</span> <span class="n">user</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">],</span> <span class="n">password</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;prefix&quot;</span><span class="p">)</span>
+    <span class="n">dbname_re</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dbname_re&quot;</span><span class="p">)</span>
+    <span class="n">build</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;version&quot;</span><span class="p">)</span>
+    <span class="n">dbs</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">get_cores</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="n">build</span><span class="o">=</span><span class="n">build</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span> <span class="n">dbname_re</span><span class="o">=</span><span class="n">dbname_re</span><span class="p">)</span>
+
+    <span class="n">brc_mode</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;brc_mode&quot;</span><span class="p">)</span>
+    <span class="n">dbs_data</span> <span class="o">=</span> <span class="n">format_db_data</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">dbs</span><span class="p">,</span> <span class="n">brc_mode</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;output_json&quot;</span><span class="p">):</span>
+        <span class="n">output_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;output_json&quot;</span><span class="p">))</span>
+        <span class="k">with</span> <span class="n">output_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_fh</span><span class="p">:</span>
+            <span class="n">output_fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dbs_data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">dbs</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>

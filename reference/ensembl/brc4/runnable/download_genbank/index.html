@@ -20,7 +20,7 @@
     
     
       
-        <title>download_genbank - Ensembl-Genomio (v0.1)</title>
+        <title>download_genbank - Ensembl-Genomio</title>
       
     
     
@@ -83,10 +83,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="Ensembl-Genomio (v0.1)" class="md-header__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../.." title="Ensembl-Genomio" class="md-header__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,7 +96,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Ensembl-Genomio (v0.1)
+            Ensembl-Genomio
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,13 +174,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="Ensembl-Genomio (v0.1)" class="md-nav__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../.." title="Ensembl-Genomio" class="md-nav__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../images/logo.png" alt="logo">
 
     </a>
-    Ensembl-Genomio (v0.1)
+    Ensembl-Genomio
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -2171,6 +2169,19 @@
   
       <p>In case a download failed.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/brc4/runnable/download_genbank.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DownloadError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;In case a download failed.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2209,6 +2220,105 @@
             Bases: <code><span title="eHive.BaseRunnable">BaseRunnable</span></code></p>
 
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/brc4/runnable/download_genbank.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">download_genbank</span><span class="p">(</span><span class="n">eHive</span><span class="o">.</span><span class="n">BaseRunnable</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">param_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">accession</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_required</span><span class="p">(</span><span class="s2">&quot;gb_accession&quot;</span><span class="p">)</span>
+        <span class="n">main_download_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="s2">&quot;download_dir&quot;</span><span class="p">)</span>
+        <span class="n">download_dir</span> <span class="o">=</span> <span class="n">main_download_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">accession</span>
+
+        <span class="c1"># Set and create dedicated dir for download</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">download_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">download_dir</span><span class="p">)</span>
+
+        <span class="c1"># Download the file</span>
+        <span class="n">gb_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_genbank</span><span class="p">(</span><span class="n">accession</span><span class="p">,</span> <span class="n">download_dir</span><span class="p">)</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;gb_file&quot;</span><span class="p">:</span> <span class="n">gb_path</span><span class="p">,</span> <span class="s2">&quot;gb_accession&quot;</span><span class="p">:</span> <span class="n">accession</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataflow</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">download_genbank</span><span class="p">(</span><span class="n">accession</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dl_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a GenBank accession, download the corresponding file in GenBank format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dl_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">,</span> <span class="n">accession</span> <span class="o">+</span> <span class="s2">&quot;.gb&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Don&#39;t redownload the file</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dl_path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">dl_path</span>
+
+        <span class="c1"># Get the list of assemblies for this accession</span>
+        <span class="n">e_url</span> <span class="o">=</span> <span class="s2">&quot;https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi&quot;</span>
+        <span class="n">e_params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="s2">&quot;nuccore&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rettype&quot;</span><span class="p">:</span> <span class="s2">&quot;gbwithparts&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;retmode&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">e_params</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accession</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">e_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">e_params</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dl_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">gff</span><span class="p">:</span>
+                <span class="n">gff</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GFF file write to </span><span class="si">{</span><span class="n">dl_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">dl_path</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DownloadError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not download the genbank file: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2242,6 +2352,67 @@
   
       <p>Given a GenBank accession, download the corresponding file in GenBank format</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/brc4/runnable/download_genbank.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">download_genbank</span><span class="p">(</span><span class="n">accession</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dl_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a GenBank accession, download the corresponding file in GenBank format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dl_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">,</span> <span class="n">accession</span> <span class="o">+</span> <span class="s2">&quot;.gb&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Don&#39;t redownload the file</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dl_path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dl_path</span>
+
+    <span class="c1"># Get the list of assemblies for this accession</span>
+    <span class="n">e_url</span> <span class="o">=</span> <span class="s2">&quot;https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi&quot;</span>
+    <span class="n">e_params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="s2">&quot;nuccore&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rettype&quot;</span><span class="p">:</span> <span class="s2">&quot;gbwithparts&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;retmode&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">e_params</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accession</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">e_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">e_params</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dl_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">gff</span><span class="p">:</span>
+            <span class="n">gff</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GFF file write to </span><span class="si">{</span><span class="n">dl_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dl_path</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DownloadError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not download the genbank file: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>

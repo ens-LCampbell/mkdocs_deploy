@@ -20,7 +20,7 @@
     
     
       
-        <title>update_genome_metadata - Ensembl-Genomio (v0.1)</title>
+        <title>update_genome_metadata - Ensembl-Genomio</title>
       
     
     
@@ -83,10 +83,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="Ensembl-Genomio (v0.1)" class="md-header__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../../.." title="Ensembl-Genomio" class="md-header__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,7 +96,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Ensembl-Genomio (v0.1)
+            Ensembl-Genomio
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,13 +174,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="Ensembl-Genomio (v0.1)" class="md-nav__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../../.." title="Ensembl-Genomio" class="md-nav__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../../images/logo.png" alt="logo">
 
     </a>
-    Ensembl-Genomio (v0.1)
+    Ensembl-Genomio
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -2219,6 +2217,51 @@
   
       <p>Input arguments expected by the entry point of this module.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">InputSchema</span><span class="p">(</span><span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Input arguments expected by the entry point of this module.&quot;&quot;&quot;</span>
+
+    <span class="n">genome_infile</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">InputFile</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Input Genome data. Following the schemas/genome_schema.json&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">genome_outfile</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">OutputFile</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Path to the new amended genome metadata file.&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">INSDC_RefSeq_report_infile</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">InputFile</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Path to the INSDC/RefSeq sequences report to parse&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">genbank_infile</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">InputFile</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Path to the INSDC/RefSeq gbff file to parse&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">brc4_mode</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Activate BRC4 mode (default)&quot;</span><span class="p">})</span>
+    <span class="n">output_json</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">OutputFile</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">dump_default</span><span class="o">=</span><span class="s2">&quot;amend_genome_meta.json&quot;</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Default json file to capture json metadata&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2259,6 +2302,25 @@
   
       <p>Used if some data is missing from the report file.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">MissingDataError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Used if some data is missing from the report file.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report_path</span><span class="p">:</span> <span class="n">PathLike</span><span class="p">,</span> <span class="n">accession</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">report_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Can&#39;t get data for </span><span class="si">{</span><span class="n">accession</span><span class="si">}</span><span class="s2"> in report </span><span class="si">{</span><span class="n">report_path</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="n">report_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">report_msg</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">report_msg</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2394,6 +2456,73 @@
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">amend_genomic_metadata</span><span class="p">(</span>
+    <span class="n">genome_infile</span><span class="p">:</span> <span class="n">PathLike</span><span class="p">,</span>
+    <span class="n">genome_outfile</span><span class="p">:</span> <span class="n">PathLike</span><span class="p">,</span>
+    <span class="n">insdc_refseq_report_infile</span><span class="p">:</span> <span class="n">PathLike</span><span class="p">,</span>
+    <span class="n">genbank_infile</span><span class="p">:</span> <span class="n">PathLike</span><span class="p">,</span>
+    <span class="n">brc4_mode</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        genome_infile: Genome data following the schemas/genome_schema.json.</span>
+<span class="sd">        genome_outfile: Amended genome data file.</span>
+<span class="sd">        output_dir: Directory where the new file will be created.</span>
+<span class="sd">        INSDC_RefSeq_report_infile: Path to the INSDC/RefSeq sequences report to parse.</span>
+<span class="sd">        genbank_infile: Path to the INSDC/RefSeq gbff file to parse.</span>
+<span class="sd">        brc4_mode: Activate BRC4 mode (default).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">genome_metadata</span> <span class="o">=</span> <span class="n">get_json</span><span class="p">(</span><span class="n">genome_infile</span><span class="p">)</span>
+
+    <span class="c1"># Get additional sequences in the assembly but not in the data</span>
+    <span class="n">additions</span> <span class="o">=</span> <span class="n">get_additions</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">insdc_refseq_report_infile</span><span class="p">),</span> <span class="n">Path</span><span class="p">(</span><span class="n">genbank_infile</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">additions</span><span class="p">:</span>
+        <span class="n">genome_metadata</span><span class="p">[</span><span class="s2">&quot;added_seq&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;region_name&quot;</span><span class="p">:</span> <span class="n">additions</span><span class="p">}</span>
+
+    <span class="c1"># Possible brc specific</span>
+    <span class="k">if</span> <span class="n">brc4_mode</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Print out the file</span>
+    <span class="n">genome_outfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">genome_outfile</span><span class="p">)</span>
+    <span class="n">print_json</span><span class="p">(</span><span class="n">genome_outfile</span><span class="p">,</span> <span class="n">genome_metadata</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">genome_outfile</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2458,6 +2587,49 @@
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_additions</span><span class="p">(</span><span class="n">report_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">gbff_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns all `seq_regions` that are mentioned in the report but that are not in the data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        report_path: Path to the report file.</span>
+<span class="sd">        gbff_path: Path to the GBFF file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gbff_regions</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">get_gbff_regions</span><span class="p">(</span><span class="n">gbff_path</span><span class="p">))</span>
+    <span class="n">report_regions</span> <span class="o">=</span> <span class="n">get_report_regions_names</span><span class="p">(</span><span class="n">report_path</span><span class="p">)</span>
+
+    <span class="n">additions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">rep_seq</span> <span class="ow">in</span> <span class="n">report_regions</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">rs_seq</span><span class="p">,</span> <span class="n">gb_seq</span><span class="p">)</span> <span class="o">=</span> <span class="n">rep_seq</span>
+        <span class="k">if</span> <span class="n">rs_seq</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gbff_regions</span> <span class="ow">and</span> <span class="n">gb_seq</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gbff_regions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rs_seq</span><span class="p">:</span>
+                <span class="n">additions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rs_seq</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">additions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gb_seq</span><span class="p">)</span>
+    <span class="n">additions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">additions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">additions</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2508,6 +2680,39 @@
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_gbff_regions</span><span class="p">(</span><span class="n">gbff_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the `seq_region` data from the GBFF file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gbff_path: Gbff file path to use.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">gbff_path</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">seq_regions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="n">open_gz_file</span><span class="p">(</span><span class="n">gbff_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">gbff_file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">gbff_file</span><span class="p">,</span> <span class="s2">&quot;genbank&quot;</span><span class="p">):</span>
+            <span class="n">record_id</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_VERSION_END</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">seq_regions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">seq_regions</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2558,6 +2763,61 @@
     </tbody>
   </table>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_report_regions_names</span><span class="p">(</span><span class="n">report_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list of `seq_region` names from the report file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        report_path: Path to the seq_regions report from INSDC/RefSeq.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the report in a CSV format, easier to manipulate</span>
+    <span class="n">report_csv</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_report_to_csv</span><span class="p">(</span><span class="n">report_path</span><span class="p">)</span>
+
+    <span class="c1"># Feed the csv string to the CSV reader</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">report_csv</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span><span class="p">)</span>
+
+    <span class="c1"># Create the seq_regions</span>
+    <span class="n">seq_regions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">refseq_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;RefSeq-Accn&quot;</span><span class="p">]</span>
+        <span class="n">genbank_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;GenBank-Accn&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">refseq_name</span> <span class="o">==</span> <span class="s2">&quot;na&quot;</span><span class="p">:</span>
+            <span class="n">refseq_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">genbank_name</span> <span class="o">==</span> <span class="s2">&quot;na&quot;</span><span class="p">:</span>
+            <span class="n">genbank_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">refseq_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_VERSION_END</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">refseq_name</span><span class="p">)</span>
+        <span class="n">genbank_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_VERSION_END</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">genbank_name</span><span class="p">)</span>
+        <span class="n">seq_regions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">genbank_name</span><span class="p">,</span> <span class="n">refseq_name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">seq_regions</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2578,6 +2838,35 @@
   
       <p>Module's entry-point.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/metadata/update_genome_metadata.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Module&#39;s entry-point.&quot;&quot;&quot;</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchemaParser</span><span class="p">(</span><span class="n">schema_type</span><span class="o">=</span><span class="n">InputSchema</span><span class="p">)</span>
+    <span class="n">amended_genome_file</span> <span class="o">=</span> <span class="n">amend_genomic_metadata</span><span class="p">(</span>
+        <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;genome_infile&quot;</span><span class="p">],</span>
+        <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;genome_outfile&quot;</span><span class="p">],</span>
+        <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;INSDC_RefSeq_report_infile&quot;</span><span class="p">],</span>
+        <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;genbank_infile&quot;</span><span class="p">],</span>
+        <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;brc4_mode&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="c1"># Flow out the file and type</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;metadata_type&quot;</span><span class="p">:</span> <span class="s2">&quot;genome&quot;</span><span class="p">,</span> <span class="s2">&quot;metadata_json&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">amended_genome_file</span><span class="p">)}</span>
+    <span class="n">print_json</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;output_json&quot;</span><span class="p">],</span> <span class="n">output</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>

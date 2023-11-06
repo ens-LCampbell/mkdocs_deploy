@@ -20,7 +20,7 @@
     
     
       
-        <title>manifest_maker - Ensembl-Genomio (v0.1)</title>
+        <title>manifest_maker - Ensembl-Genomio</title>
       
     
     
@@ -83,10 +83,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="Ensembl-Genomio (v0.1)" class="md-header__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../.." title="Ensembl-Genomio" class="md-header__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -97,7 +96,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Ensembl-Genomio (v0.1)
+            Ensembl-Genomio
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,13 +174,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="Ensembl-Genomio (v0.1)" class="md-nav__button md-logo" aria-label="Ensembl-Genomio (v0.1)" data-md-component="logo">
+    <a href="../../../../.." title="Ensembl-Genomio" class="md-nav__button md-logo" aria-label="Ensembl-Genomio" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../../images/logo.png" alt="logo">
 
     </a>
-    Ensembl-Genomio (v0.1)
+    Ensembl-Genomio
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -2201,6 +2199,23 @@
   
       <p>Input arguments expected by this script.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/manifest_maker.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">InputSchema</span><span class="p">(</span><span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Input arguments expected by this script.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Server parameters</span>
+    <span class="n">manifest_dir</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">InputDir</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Folder where to create a manifest file.&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2239,6 +2254,145 @@
   
       <p>Given a directory with genomic files, create a manifest json file for them.</p>
 
+            <details class="quote">
+              <summary>Source code in <code>src/ensembl/io/genomio/manifest_maker.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ManifestMaker</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a directory with genomic files, create a manifest json file for them.&quot;&quot;&quot;</span>
+
+    <span class="n">same_names</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;gff3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fasta_dna&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fasta_pep&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;functional_annotation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;genome&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;seq_attrib&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;seq_region&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;agp&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;events&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">alias_names</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;gene_models&quot;</span><span class="p">:</span> <span class="s2">&quot;gff3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dna&quot;</span><span class="p">:</span> <span class="s2">&quot;fasta_dna&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pep&quot;</span><span class="p">:</span> <span class="s2">&quot;fasta_pep&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">same_names</span><span class="p">}</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">names</span><span class="p">,</span> <span class="o">**</span><span class="n">alias_names</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">manifest_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="n">manifest_dir</span>
+
+    <span class="k">def</span> <span class="nf">create_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create the manifest file.&quot;&quot;&quot;</span>
+        <span class="n">manifest_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_files_checksums</span><span class="p">()</span>
+        <span class="n">manifest_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">/</span> <span class="s2">&quot;manifest.json&quot;</span>
+        <span class="k">with</span> <span class="n">manifest_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_out</span><span class="p">:</span>
+            <span class="n">json_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">manifest_data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">manifest_path</span>
+
+    <span class="k">def</span> <span class="nf">get_files_checksums</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the checksum of all the files in the directory.&quot;&quot;&quot;</span>
+        <span class="n">manifest_files</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">subfile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+            <span class="n">used_file</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">subfile</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Can&#39;t create manifest for subdirectory&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">standard_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">subfile</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                    <span class="n">used_file</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">md5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_md5sum</span><span class="p">(</span><span class="n">subfile</span><span class="p">)</span>
+                    <span class="n">file_obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="n">subfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;md5sum&quot;</span><span class="p">:</span> <span class="n">md5</span><span class="p">}</span>
+                    <span class="k">if</span> <span class="n">standard_name</span> <span class="ow">in</span> <span class="n">manifest_files</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                            <span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_obj</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># Convert to a list</span>
+                            <span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">],</span> <span class="n">file_obj</span><span class="p">]</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_obj</span>
+                    <span class="k">break</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">used_file</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">subfile</span><span class="si">}</span><span class="s2"> was not included in the manifest&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">manifest_files</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_md5sum</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">file_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data_bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">data_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
 
   
 
@@ -2268,6 +2422,23 @@
   
       <p>Create the manifest file.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/manifest_maker.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the manifest file.&quot;&quot;&quot;</span>
+    <span class="n">manifest_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_files_checksums</span><span class="p">()</span>
+    <span class="n">manifest_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">/</span> <span class="s2">&quot;manifest.json&quot;</span>
+    <span class="k">with</span> <span class="n">manifest_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_out</span><span class="p">:</span>
+        <span class="n">json_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">manifest_data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">manifest_path</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2288,6 +2459,67 @@
   
       <p>Compute the checksum of all the files in the directory.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/manifest_maker.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_files_checksums</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the checksum of all the files in the directory.&quot;&quot;&quot;</span>
+    <span class="n">manifest_files</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">subfile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+        <span class="n">used_file</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">subfile</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Can&#39;t create manifest for subdirectory&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">standard_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">subfile</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                <span class="n">used_file</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">md5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_md5sum</span><span class="p">(</span><span class="n">subfile</span><span class="p">)</span>
+                <span class="n">file_obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="n">subfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;md5sum&quot;</span><span class="p">:</span> <span class="n">md5</span><span class="p">}</span>
+                <span class="k">if</span> <span class="n">standard_name</span> <span class="ow">in</span> <span class="n">manifest_files</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_obj</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Convert to a list</span>
+                        <span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">],</span> <span class="n">file_obj</span><span class="p">]</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">manifest_files</span><span class="p">[</span><span class="n">standard_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_obj</span>
+                <span class="k">break</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">used_file</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">subfile</span><span class="si">}</span><span class="s2"> was not included in the manifest&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">manifest_files</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
@@ -2317,6 +2549,31 @@
   
       <p>Main entrypoint.</p>
 
+          <details class="quote">
+            <summary>Source code in <code>src/ensembl/io/genomio/manifest_maker.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main entrypoint.&quot;&quot;&quot;</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">argschema</span><span class="o">.</span><span class="n">ArgSchemaParser</span><span class="p">(</span><span class="n">schema_type</span><span class="o">=</span><span class="n">InputSchema</span><span class="p">)</span>
+
+    <span class="n">maker</span> <span class="o">=</span> <span class="n">ManifestMaker</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;manifest_dir&quot;</span><span class="p">]))</span>
+    <span class="n">manifest_path</span> <span class="o">=</span> <span class="n">maker</span><span class="o">.</span><span class="n">create_manifest</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;output_json&quot;</span><span class="p">):</span>
+        <span class="n">out_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;manifest_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">manifest_path</span><span class="p">)}</span>
+        <span class="k">with</span> <span class="n">Path</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;output_json&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_fh</span><span class="p">:</span>
+            <span class="n">output_fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">out_data</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
