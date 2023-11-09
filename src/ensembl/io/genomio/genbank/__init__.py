@@ -12,8 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+"""GenBank fetching and data manipulation module."""
 
-"""GenomIO Genbank modules."""
-
-from .extract_from_genbank import *
-from .get_genbank import *
+from .download import *
+from .extract_data import *

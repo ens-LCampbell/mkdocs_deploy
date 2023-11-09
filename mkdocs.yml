@@ -3,6 +3,7 @@ site_name: Ensembl-Genomio (v0.1)
 
 theme:
   name: "material"
+  logo: img/logo.png
 
 plugins:
 - search
@@ -18,7 +19,7 @@ plugins:
     handlers:
       python:
         options:
-          show_source: false
+          show_source: true
 
 nav:
   - Home: index.md

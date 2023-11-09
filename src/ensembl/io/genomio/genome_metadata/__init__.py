@@ -12,9 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+"""Genome metadata handling module."""
 
-"""GenomIO Genome Metadata modules."""
-
-from .compare_genome_stats import *
-from .dump_genome_metadata import *
-from .dump_genome_stats import *
+from .dump import *
+from .prepare import *
+from .extend import *

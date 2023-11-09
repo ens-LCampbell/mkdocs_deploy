@@ -1,11 +1,13 @@
 # [Ensembl-genomio](https://github.com/Ensembl/ensembl-genomio)
 
+<!-- ![Ensembl-Metazoa](img/metazoa_logo.png) -->
+
 A repository dedicated to pipelines used to turn basic genomic data into formatted 
 Ensembl core databases. Also allow users to dump core databases into various formats.
 
 File formats handled : FastA, gff3, JSON (*following BRC4 specifications*).
 
-Check out the :doc:`usage` section for further information of requirements to
+Check out the [usage](usage.md) section for further information of requirements to
 run ensembl-genomio pipelines.
 
 Ehive pipelines
@@ -15,7 +17,7 @@ Ehive pipelines
 
 Contents
 --------
-Check out ref:`installation <install>` section for further information on how 
+Check out [installation](install.md) section for further information on how 
 to install the project.
 
 1. [Usage](usage.md)
